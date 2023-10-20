@@ -99,6 +99,7 @@
             BtnMinus.Text = "-";
             BtnMinus.UseVisualStyleBackColor = true;
             BtnMinus.Click += BtnOperation_Click;
+         
             // 
             // BtnDot
             // 
@@ -119,6 +120,7 @@
             BtnResult.Text = "=";
             BtnResult.UseVisualStyleBackColor = true;
             BtnResult.Click += BtnResult_Click;
+         
             // 
             // BtnDivide
             // 
@@ -129,6 +131,7 @@
             BtnDivide.Text = "/";
             BtnDivide.UseVisualStyleBackColor = true;
             BtnDivide.Click += BtnOperation_Click;
+           
             // 
             // BtnSix
             // 
@@ -149,6 +152,7 @@
             BtnMultiply.Text = "X";
             BtnMultiply.UseVisualStyleBackColor = true;
             BtnMultiply.Click += BtnOperation_Click;
+            
             // 
             // BtnNine
             // 
@@ -210,6 +214,7 @@
             BtnPlus.Text = "+";
             BtnPlus.UseVisualStyleBackColor = true;
             BtnPlus.Click += BtnOperation_Click;
+            
             // 
             // BtnRemove
             // 
@@ -220,6 +225,7 @@
             BtnRemove.Text = "<-";
             BtnRemove.UseVisualStyleBackColor = true;
             BtnRemove.Click += BtnRemove_Click;
+            BtnRemove.KeyPress += RemoveKey_Press;
             // 
             // BtnClear
             // 
@@ -230,6 +236,7 @@
             BtnClear.Text = "C";
             BtnClear.UseVisualStyleBackColor = true;
             BtnClear.Click += BtnClear_Click;
+            BtnClear.KeyPress += ClearPress_Key;
             // 
             // LabelShow
             // 

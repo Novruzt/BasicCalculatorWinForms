@@ -18,16 +18,77 @@ namespace BasicCalculator
         private bool Status;
         private string Last;
         private bool FirstEqu = true;
+        private bool IsEnter = false;
+
         public Main()
         {
             InitializeComponent();
+
+
             this.KeyPreview = true;
             this.KeyPress += new KeyPressEventHandler(BtnNumber_KeyPress);
-            
+            this.KeyPress += new KeyPressEventHandler(ClearPress_Key);
+            this.KeyPress += new KeyPressEventHandler(RemoveKey_Press);
+          
+        }
+
+        private void CalculateResult()
+        {
+
+            if (FirstEqu == true)
+            {
+                Num = Convert.ToDouble(LabelShow.Text);
+                FirstEqu = false;
+            }
+
+            switch (Last)
+            {
+                case "+":
+
+                    Result += Num;
+
+                    break;
+
+                case "-":
+                    Result -= Num;
+                    break;
+
+                case "X":
+                    Result *= Num;
+                    break;
+
+                case "/":
+
+                    if (LabelShow.Text == "0")
+                        LabelShow.Text = "You cannot divide by zero.";
+
+                    else
+                        Result /= Num;
+
+                    break;
+
+                case "=":
+
+                    if (Last == "+")
+                        goto case "+";
+                    if (Last == "-")
+                        goto case "-";
+                    if (Last == "X")
+                        goto case "X";
+                    if (Last == "/")
+                        goto case "/";
+                    break;
+
+
+            }
+
+            LabelShow.Text = Result.ToString();
+
         }
 
         private void BtnNumber_Click(object sender, EventArgs e)
         {
+
             Button btn = (Button)sender;
 
             if (LabelShow.Text == "0")
@@ -144,56 +205,7 @@ namespace BasicCalculator
 
         private void BtnResult_Click(object sender, EventArgs e)
         {
-            if (FirstEqu == true)
-            {
-                Num = Convert.ToDouble(LabelShow.Text);
-                FirstEqu = false;
-            }
-
-
-            switch (Last)
-            {
-                case "+":
-
-                    Result += Num;
-
-                    break;
-
-                case "-":
-                    Result -= Num;
-                    break;
-
-                case "X":
-                    Result *= Num;
-                    break;
-
-                case "/":
-
-                    if (LabelShow.Text == "0")
-                        LabelShow.Text = "You cannot divide by zero.";
-
-                    else
-                        Result /= Num;
-
-                    break;
-
-                case "=":
-
-                    if (Last == "+")
-                        goto case "+";
-                    if (Last == "-")
-                        goto case "-";
-                    if (Last == "X")
-                        goto case "X";
-                    if (Last == "/")
-                        goto case "/";
-                    break;
-
-
-            }
-
-            LabelShow.Text = Result.ToString();
-
+            CalculateResult();
         }
 
         private void BtnNumber_KeyPress(object sender, KeyPressEventArgs e)
@@ -235,6 +247,41 @@ namespace BasicCalculator
                 else
                     LabelShow.Text = LabelShow.Text.Remove(0, 1);
             }
+
         }
+
+
+
+
+
+
+
+        private void ClearPress_Key(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 'C' || e.KeyChar == 'c')
+                if (LabelShow.Text != "0")
+                {
+                    LabelShow.Text = "0";
+                    Result = 0;
+                    Status = false;
+                    FirstEqu = false;
+                }
+        }
+
+        private void RemoveKey_Press(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Back)
+            {
+                if (LabelShow.Text != "0" && LabelShow.Text.Length != 0)
+                    LabelShow.Text = LabelShow.Text.Remove(LabelShow.Text.Length - 1);
+
+                if (LabelShow.Text.Length == 0)
+                    LabelShow.Text = "0";
+            }
+        }
+
+      
+
+      
     }
 }
