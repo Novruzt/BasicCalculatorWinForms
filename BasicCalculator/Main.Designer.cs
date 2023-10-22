@@ -99,7 +99,7 @@
             BtnMinus.Text = "-";
             BtnMinus.UseVisualStyleBackColor = true;
             BtnMinus.Click += BtnOperation_Click;
-         
+            BtnMinus.KeyDown += OperationKey_Down;
             // 
             // BtnDot
             // 
@@ -120,7 +120,7 @@
             BtnResult.Text = "=";
             BtnResult.UseVisualStyleBackColor = true;
             BtnResult.Click += BtnResult_Click;
-         
+            BtnResult.KeyPress += ResultKey_Press;
             // 
             // BtnDivide
             // 
@@ -131,7 +131,7 @@
             BtnDivide.Text = "/";
             BtnDivide.UseVisualStyleBackColor = true;
             BtnDivide.Click += BtnOperation_Click;
-           
+            BtnDivide.KeyDown += OperationKey_Down;
             // 
             // BtnSix
             // 
@@ -152,7 +152,7 @@
             BtnMultiply.Text = "X";
             BtnMultiply.UseVisualStyleBackColor = true;
             BtnMultiply.Click += BtnOperation_Click;
-            
+            BtnMultiply.KeyDown += OperationKey_Down;
             // 
             // BtnNine
             // 
@@ -214,7 +214,7 @@
             BtnPlus.Text = "+";
             BtnPlus.UseVisualStyleBackColor = true;
             BtnPlus.Click += BtnOperation_Click;
-            
+            BtnPlus.KeyDown += OperationKey_Down;
             // 
             // BtnRemove
             // 
@@ -288,6 +288,7 @@
             MaximizeBox = false;
             Name = "Main";
             Text = "Main";
+            KeyDown += OperationKey_Down;
             ResumeLayout(false);
         }
 
