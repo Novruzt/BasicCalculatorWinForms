@@ -47,7 +47,7 @@
             BtnRemove = new Button();
             BtnClear = new Button();
             LabelShow = new Label();
-            BtnSignChanger_Click = new Button();
+            BtnSignChange_Click = new Button();
             SuspendLayout();
             // 
             // BtnZero
@@ -110,6 +110,7 @@
             BtnDot.Text = ".";
             BtnDot.UseVisualStyleBackColor = true;
             BtnDot.Click += BtnDot_Click;
+            BtnDot.KeyPress += DotKey_Press;
             // 
             // BtnResult
             // 
@@ -249,15 +250,15 @@
             LabelShow.TextAlign = ContentAlignment.MiddleRight;
             LabelShow.Click += BtnNumber_Click;
             // 
-            // BtnSignChanger_Click
+            // BtnSignChange_Click
             // 
-            BtnSignChanger_Click.Location = new Point(448, 386);
-            BtnSignChanger_Click.Name = "BtnSignChanger_Click";
-            BtnSignChanger_Click.Size = new Size(79, 68);
-            BtnSignChanger_Click.TabIndex = 1;
-            BtnSignChanger_Click.Text = "+/-";
-            BtnSignChanger_Click.UseVisualStyleBackColor = true;
-            BtnSignChanger_Click.Click += BtnSignChanger_Click_Click;
+            BtnSignChange_Click.Location = new Point(448, 386);
+            BtnSignChange_Click.Name = "BtnSignChange_Click";
+            BtnSignChange_Click.Size = new Size(79, 68);
+            BtnSignChange_Click.TabIndex = 1;
+            BtnSignChange_Click.Text = "+/-";
+            BtnSignChange_Click.UseVisualStyleBackColor = true;
+            BtnSignChange_Click.Click += BtnSignChange_Click_Click;
             // 
             // Main
             // 
@@ -272,7 +273,7 @@
             Controls.Add(BtnFive);
             Controls.Add(BtnSix);
             Controls.Add(BtnPlus);
-            Controls.Add(BtnSignChanger_Click);
+            Controls.Add(BtnSignChange_Click);
             Controls.Add(BtnResult);
             Controls.Add(BtnSeven);
             Controls.Add(BtnEight);
@@ -314,5 +315,6 @@
         private Button BtnClear;
         private Label LabelShow;
         private Button BtnSignChanger_Click;
+        private Button BtnSignChange_Click;
     }
 }
